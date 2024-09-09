@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function isPalindrome(str) {
+            str = str.toLowerCase().replace(/[^a-z0-9]/gi, '');
+            return str === str.split('').reverse().join('');
+        }
+        console.log(isPalindrome("hello"));
+
+//         Write a JavaScript function that removes duplicates from an array. 
+
+// input  ⁠= [1,  2,  “hello”,  “world”,  { name: “Alice”, age: 30 },  { name: “Alice”, age: 30 },   [1, 2, 3],  [1, 2, 3],  “hello”,  3,  [4, 5, { nested: “object” }],  [4, 5, { nested: “object” }],  { nested: [1, 2, 3] },  { nested: [1, 2, 3] }]
+function removeDuplicates(arr) {
+  const uniqueArray = []; 
+   arr.forEach(item => {
+     
+    const stringifiedItem = JSON.stringify(item);    
+    if (!uniqueArray.some(uniqueItem => JSON.stringify(uniqueItem) === stringifiedItem)) {
+      uniqueArray.push(item);
+    }
+  });  return uniqueArray;
+} 
+const input = [
+  1, 2, "hello", "world",
+   { name: "Alice", age: 30 },
+  { name: "Alice", age: 30 }, 
+  [1, 2, 3], [1, 2, 3],
+  "hello", 3, [4, 5, { nested: "object" }], 
+  [4, 5, { nested: "object" }],
+  { nested: [1, 2, 3] },
+   { nested: [1, 2, 3] }
+]; 
+const result = removeDuplicates(input);
+console.log(result);
+
+
+
+
+// ⁠Write JavaScript code to create a new HTML element, add it to the DOM, and attach an event listener to it.
+ 
+const newElement = document.createElement('button');
+newElement.textContent = 'Click Me';
+document.body.appendChild(newElement);
+newElement.addEventListener('click', function() {
+  alert('Button was clicked!');
+});
+
+// Write a JavaScript class Animal with a method speak(). Then, create a subclass Dog that overrides the speak() method.
+// Define the Animal class
+class Animal {
+ 
+  constructor(name) {
+    this.name = name;
+  }
+  speak() {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+class Dog extends Animal {
+  
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const inheritAnimal = new Animal('Generic Animal');
+inheritAnimal.speak();  
+ 
+const myDog = new Dog('Rex');
+myDog.speak();  
+
+
+    </script>
+</body>
+
+</html>
